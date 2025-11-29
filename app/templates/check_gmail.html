@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', path='assets/css/register.css') }}" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title login">Check Gmail</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <label for="login" class="slide login">Check gmail</label>
+            <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+            {#  login#}
+            {% if error2 %}
+                <div class="alert alert-danger text-center">
+                    {{ error2 }}
+                </div>
+            {% endif %}
+            <form action="/check-gmail" class="login" method="post">
+                <div class="field">
+                    <input type="text" name="generate_code" placeholder="Check code" required>
+                </div>
+                <div class="pass-link"><a href="#">Forgot password?</a></div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', path='assets/js/register.js') }}"></script>
+
+</body>
+</html>
